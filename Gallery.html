@@ -7,7 +7,7 @@
     <script>
       let selected = "Photos";
       let photoType = "General";
-      let videoType = "Lectures";
+      let videoType = "Enterpreneurial";
       const setSelected = (value) => {
         selected = value;
         const content = renderContent(selected, photoType, videoType);
@@ -24,7 +24,7 @@
         document.getElementById("root").innerHTML = content;
       };
       const Videos = {
-        Entrepreneur: [
+        Entrepreneurial: [
             "https://www.youtube.com/watch?v=RyVPFjDrwjI",
             "https://youtube.com/watch?v=hEKFba3OTdo",
             "https://www.youtube.com/watch?v=SHtlgYif_F4"
@@ -115,14 +115,14 @@
       >
         <div class="flex gap-20">
           <button
-            class="btn btn-wide bg-[--black] text-[--white]"
+            class="btn btn-wide bg-[--black] rounded-3xl text-[--white]"
             onClick="
                     setSelected('Photos')"
           >
             Photos
           </button>
           <button
-            class="btn btn-wide bg-[--black] text-[--white]"
+            class="btn btn-wide bg-[--black] rounded-3xl text-[--white]"
             onClick="
                     setSelected('Video')"
           >
@@ -284,7 +284,7 @@
                             <div class="navbar-center border-b border-[--black] border-opacity-30 w-2/4 justify-center hidden lg:flex">
                                 <ul class="menu menu-horizontal px-1">
                                     <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
-                                        setVideoType('Enterpreneur')">Entrepreneurial</li>
+                                        setVideoType('Enterpreneurial')">Entrepreneurial</li>
                                     <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
                                         setVideoType('Research')">Research</li>
                                     <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
@@ -294,10 +294,10 @@
                                 </ul>
                             </div>
                         </div>`;
-            if (videoType === "Enterpreneur") {
+            if (videoType === "Enterpreneurial") {
               // Render Lecture videos
               content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
-                ${Videos.Lectures.map((video, index) => {
+                ${Videos.Entrepreneurial.map((video, index) => {
                   return `
                         <div class="p-2" key=${index}>
                             <iframe width="560" height="315" class="w-72 h-44" src=${video.replace(
