@@ -118,9 +118,7 @@
           <button
             class="btn btn-wide btn-outline rounded-3xl text-[--white] hover:bg-[--white] hover:text-[--black]"
             id="Photos"
-            onClick="
-                    setSelected('Photos')"
-          >
+            onClick="setSelected('Photos')">
             Photos
           </button>
           <button
@@ -225,14 +223,14 @@
             navbar = `<div class="navbar justify-center min-w-[90vw]">
                             <div class="navbar-center border-b border-[--black] border-opacity-30 w-2/4 justify-center self-center hidden lg:flex">
                                 <ul class="menu menu-horizontal px-1">
-                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
-                                        setPhotoType('General')">General</li>
-                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
-                                        setPhotoType('Research')">Research</li>
-                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
-                                        setPhotoType('Enterpreneurial')">Entrepreneurial</li>
-                                    <li class=' text-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
-                                        setPhotoType('Others')">Others</li>
+                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="General" && "font-semibold"}' onClick="
+                                        setPhotoType('General')" id="photos-general">General</li>
+                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="Research" && "font-semibold"} ' onClick="
+                                        setPhotoType('Research')" id="photos-research">Research</li>
+                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="Enterpreneurial" && "font-semibold"} ' onClick="
+                                        setPhotoType('Enterpreneurial')" id="photos-entrepreneurial">Entrepreneurial</li>
+                                    <li class=' text-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="Others" && "font-semibold"}' onClick="
+                                        setPhotoType('Others')" id="photos-others">Others</li>
                                 </ul>
                             </div>
                         </div>`;
@@ -303,13 +301,13 @@
             navbar = `<div class="navbar justify-center">
                             <div class="navbar-center border-b border-[--black] border-opacity-30 w-2/4 justify-center hidden lg:flex">
                                 <ul class="menu menu-horizontal px-1">
-                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
+                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Enterpreneurial" && 'font-semibold'}' onClick="
                                         setVideoType('Enterpreneurial')">Entrepreneurial</li>
-                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
+                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Research" && 'font-semibold'}' onClick="
                                         setVideoType('Research')">Research</li>
-                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
+                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Lectures" && 'font-semibold'}' onClick="
                                         setVideoType('Lectures')">Lectures</li>
-                                    <li class='text-[--black] hover:font-medium px-3 py-2 cursor-pointer' onClick="
+                                    <li class='text-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Others" && 'font-semibold'}' onClick="
                                         setVideoType('Others')">Others</li>
                                 </ul>
                             </div>
