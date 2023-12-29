@@ -115,14 +115,16 @@
       >
         <div class="flex gap-20">
           <button
-            class="btn btn-wide bg-[--black] rounded-3xl text-[--white]"
+            class="btn btn-wide btn-outline rounded-3xl text-[--white] hover:bg-[--white] hover:text-[--black]"
+            id="Photos"
             onClick="
                     setSelected('Photos')"
           >
             Photos
           </button>
           <button
-            class="btn btn-wide bg-[--black] rounded-3xl text-[--white]"
+            class="btn btn-wide btn-outline rounded-3xl text-[--white] hover:bg-[--white] hover:text-[--black]"
+            id="Videos"
             onClick="
                     setSelected('Video')"
           >
@@ -210,6 +212,14 @@
           let navbar;
           let content;
           if (selected === "Photos") {
+            document.getElementById("Photos").classList.add("bg-[--black]");
+            document.getElementById("Photos").classList.add("text-[--white]");
+            document.getElementById("Photos").classList.remove("bg-[--white]");
+            document.getElementById("Photos").classList.remove("text-[--black]");
+            document.getElementById("Videos").classList.remove("bg-[--black]");
+            document.getElementById("Videos").classList.remove("text-[--white]");
+            document.getElementById("Videos").classList.add("bg-[--white]");
+            document.getElementById("Videos").classList.add("text-[--black]");
             // Photo rendering logic
             navbar = `<div class="navbar justify-center min-w-[90vw]">
                             <div class="navbar-center border-b border-[--black] border-opacity-30 w-2/4 justify-center self-center hidden lg:flex">
@@ -280,6 +290,15 @@
             }
           } else {
             // Video rendering logic
+            document.getElementById("Videos").classList.add("bg-[--black]");
+            document.getElementById("Videos").classList.add("text-[--white]");
+            document.getElementById("Videos").classList.remove("bg-[--white]");
+            document.getElementById("Videos").classList.remove("text-[--black]");
+            document.getElementById("Photos").classList.remove("bg-[--black]");
+            document.getElementById("Photos").classList.remove("text-[--white]");
+            document.getElementById("Photos").classList.add("bg-[--white]");
+            document.getElementById("Photos").classList.add("text-[--black]");
+
             navbar = `<div class="navbar justify-center">
                             <div class="navbar-center border-b border-[--black] border-opacity-30 w-2/4 justify-center hidden lg:flex">
                                 <ul class="menu menu-horizontal px-1">
