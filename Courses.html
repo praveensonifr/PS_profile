@@ -23,10 +23,10 @@
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </div>
                 <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                  <li class="hover:text-[--golden] text-[--white]"><a>Home</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>About</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Work</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Skills</a></li>
+                  <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('Home')"><a>Home</a></li>
+                  <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('About')"><a>About</a></li>
+                  <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('Work')"><a>Work</a></li>
+                  <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('Skills')"><a>Skills</a></li>
                   <li class="hover:text-[--golden] text-[--white]"><a>Gallery</a></li>
                 </ul>
               </div>
@@ -52,7 +52,7 @@
             <div class="navbar-end">
               <a class="btn rounded-2xl btn-outline btn-sm text-[--white] hover:bg-[--white] hover:text-[--black]" href='/Courses.html'>Courses</a>
             </div>
-          </div>
+        </div>
     </nav>
     <section
       class="w-full flex justify-center items-center flex-col h-auto py-20 min-h-[90vh] gap-4 bg-[--white] text-[--black]"
@@ -188,5 +188,12 @@
             </ul>
         </div>
     </footer>
+    <script>
+          function scrollToTarget(target) {
+      // Redirect to the home page
+      window.location.href = `/#${target}`;
+      // After redirecting, add a delay to ensure the page has loaded
+    }
+    </script>
   </body>
 </html>

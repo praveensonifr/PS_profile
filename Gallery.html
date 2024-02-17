@@ -1,414 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./Assets/apple-touch-icon.webp">
-    <title>Gallery</title>
-    <script>
-      let selected = "Photos";
-      let photoType = "General";
-      let videoType = "Enterpreneurial";
-      const setSelected = (value) => {
-        selected = value;
-        const content = renderContent(selected, photoType, videoType);
-        document.getElementById("root").innerHTML = content;
-      };
-      const setPhotoType = (value) => {
-        photoType = value;
-        const content = renderContent(selected, photoType, videoType);
-        document.getElementById("root").innerHTML = content;
-      };
-      const setVideoType = (value) => {
-        videoType = value;
-        const content = renderContent(selected, photoType, videoType);
-        document.getElementById("root").innerHTML = content;
-      };
-      const Videos = {
-        Entrepreneurial: [
-            "https://www.youtube.com/watch?v=RyVPFjDrwjI",
-            "https://youtube.com/watch?v=hEKFba3OTdo",
-            "https://www.youtube.com/watch?v=SHtlgYif_F4"
-        ],
-        Research: [
-            "https://www.youtube.com/watch?v=hvFBsEa2HU4",
-            "https://www.youtube.com/watch?v=BysPmtwPKGw",
-            "https://www.youtube.com/watch?v=imBPrY9-VoI",
-            "https://www.youtube.com/watch?v=5TTKSIuOrKg",
-            "https://www.youtube.com/watch?v=JumScaTgCNI",
-        ],
-        Lectures: [
-            "https://www.youtube.com/watch?v=SHgEmhjPLMA",
-            "https://www.youtube.com/watch?v=iGt1MdyFNLM",
-            "https://www.youtube.com/watch?v=iyECpYQZ7WU"
-        ],
-        Others: [
-            "https://www.youtube.com/watch?v=Rgk0jMgpilk",
-            "https://www.youtube.com/watch?v=oApaSYBpa2k",
-            "https://www.youtube.com/watch?v=chRx0xsLGAk",
-            "https://www.youtube.com/watch?v=JpIRXZ_QLQY",
-            "https://www.youtube.com/watch?v=5bZL9yzjlYs",
-            "https://www.youtube.com/watch?v=KSm-A--SJr8",
-        ]
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./Assets/apple-touch-icon.webp">
+  <title>Gallery</title>
+  <script>
+    let selected = "Photos";
+    let photoType = "General";
+    let videoType = "Enterpreneurial";
+    const setSelected = (value) => {
+      selected = value;
+      const content = renderContent(selected, photoType, videoType);
+      document.getElementById("root").innerHTML = content;
+    };
+    const setPhotoType = (value) => {
+      photoType = value;
+      const content = renderContent(selected, photoType, videoType);
+      document.getElementById("root").innerHTML = content;
+    };
+    const setVideoType = (value) => {
+      videoType = value;
+      const content = renderContent(selected, photoType, videoType);
+      document.getElementById("root").innerHTML = content;
+    };
+    const Videos = {
+      Entrepreneurial: [
+        "https://www.youtube.com/watch?v=RyVPFjDrwjI",
+        "https://youtube.com/watch?v=hEKFba3OTdo",
+        "https://www.youtube.com/watch?v=SHtlgYif_F4"
+      ],
+      Research: [
+        "https://www.youtube.com/watch?v=hvFBsEa2HU4",
+        "https://www.youtube.com/watch?v=BysPmtwPKGw",
+        "https://www.youtube.com/watch?v=imBPrY9-VoI",
+        "https://www.youtube.com/watch?v=5TTKSIuOrKg",
+        "https://www.youtube.com/watch?v=JumScaTgCNI",
+      ],
+      Lectures: [
+        "https://www.youtube.com/watch?v=SHgEmhjPLMA",
+        "https://www.youtube.com/watch?v=iGt1MdyFNLM",
+        "https://www.youtube.com/watch?v=iyECpYQZ7WU"
+      ],
+      Others: [
+        "https://www.youtube.com/watch?v=Rgk0jMgpilk",
+        "https://www.youtube.com/watch?v=oApaSYBpa2k",
+        "https://www.youtube.com/watch?v=chRx0xsLGAk",
+        "https://www.youtube.com/watch?v=JpIRXZ_QLQY",
+        "https://www.youtube.com/watch?v=5bZL9yzjlYs",
+        "https://www.youtube.com/watch?v=KSm-A--SJr8",
+      ]
     }
     const Photos = {
-        General: [1,2,3,4,5,6],
-        Research: [1,2],
-        Entrepreneurial: [1,2,3,4,5,6,7],
-        Others: [1,2,3,4,5,6]
+      General: [1, 2, 3, 4, 5, 6],
+      Research: [1, 2],
+      Entrepreneurial: [1, 2, 3, 4, 5, 6, 7],
+      Others: [1, 2, 3, 4, 5, 6]
     }            
-    </script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://kit.fontawesome.com/e881bd61d5.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <nav>
-        <div class="navbar bg-[--black] text-[--white]">
-            <div class="navbar-start">
-              <div class="dropdown">
-                <div role="button" class="btn btn-ghost lg:hidden">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                </div>
-                <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                  <li class="hover:text-[--golden] text-[--white]"><a>Home</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>About</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Work</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Skills</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Gallery</a></li>
-                </ul>
-              </div>
-              <a class="btn btn-ghost text-[--white] hover:bg-transparent text-xl" href='/'>Praveen Soni</a>
-            </div>
-            <div class="navbar-center hidden lg:flex">
-              <ul class="menu menu-horizontal px-1">
-                <li>
-                  <div class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]' onClick=
-                    "scrollToTarget('Home')">Home</div>
-                </li>
-                <li>
-                  <div class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]' onClick=
-                    "scrollToTarget('About')">About</div></li>
-                <li><div class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]' onClick=
-                  "scrollToTarget('Work')">Work</div></li>
-                <li><div class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]' onClick=
-                  "scrollToTarget('Skills')">Skills</div></li>
-                <li><a class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation galleryLink text-[--white]' href='/Gallery.html'>Gallery</Link></>
-                <li><a href="https://simplevis.france-pay.fr/Tutorial/Publications" target='_blank' class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation focus:bg-transparent'>Publications</a></li>
-              </ul>
-            </div>
-            <div class="navbar-end">
-              <a class="btn rounded-2xl btn-outline btn-sm text-[--white] hover:bg-[--white] hover:text-[--black]" href='/Courses.html'>Courses</a>
-            </div>
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/e881bd61d5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <nav>
+    <div class="navbar bg-[--black] text-[--white]">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
           </div>
-    </nav>
-    <div>
-      <section
-        class="w-full flex justify-start items-center flex-col h-auto py-10 min-h-[90vh] gap-4 bg-[--white] text-primary"
-      >
-        <div class="flex gap-20">
-          <button
-            class="btn btn-wide btn-outline rounded-3xl text-[--white] hover:bg-[--white] hover:text-[--black]"
-            id="Photos"
-            onClick="setSelected('Photos')">
-            Photos
-          </button>
-          <button
-            class="btn btn-wide btn-outline rounded-3xl text-[--white] hover:bg-[--white] hover:text-[--black]"
-            id="Videos"
-            onClick="
-                    setSelected('Video')"
-          >
-            Videos
-          </button>
+          <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('Home')"><a>Home</a></li>
+            <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('About')"><a>About</a></li>
+            <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('Work')"><a>Work</a></li>
+            <li class="hover:text-[--golden] text-[--white]" onclick="scrollToTarget('Skills')"><a>Skills</a></li>
+            <li class="hover:text-[--golden] text-[--white]"><a>Gallery</a></li>
+          </ul>
         </div>
-        <div class=" flex justify-center items-center flex-col" id="root"></div>
-      </section>
+        <a class="btn btn-ghost text-[--white] hover:bg-transparent text-xl" href='/'>Praveen Soni</a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li>
+            <div
+              class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]'
+              onClick="scrollToTarget('Home')">Home</div>
+          </li>
+          <li>
+            <div
+              class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]'
+              onClick="scrollToTarget('About')">About</div>
+          </li>
+          <li>
+            <div
+              class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]'
+              onClick="scrollToTarget('Work')">Work</div>
+          </li>
+          <li>
+            <div
+              class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation active:bg-transparent text-[--white]'
+              onClick="scrollToTarget('Skills')">Skills</div>
+          </li>
+          <li><a
+              class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation galleryLink text-[--white]'
+              href='/Gallery.html'>Gallery</Link>
+              </>
+          <li><a href="https://simplevis.france-pay.fr/Tutorial/Publications" target='_blank'
+              class='hover:bg-transparent hover:text-secondary hover:text-[--golden] hover-underline-animation focus:bg-transparent'>Publications</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <a class="btn rounded-2xl btn-outline btn-sm text-[--white] hover:bg-[--white] hover:text-[--black]"
+          href='/Courses.html'>Courses</a>
+      </div>
     </div>
-    <footer class="bg-[--black]">
-        <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-            <div class="flex justify-center text-[--golden] text-4xl font-black">
-                Praveen Soni
-            </div>
+  </nav>
+  <div>
+    <section
+      class="w-full flex justify-start items-center flex-col h-auto py-10 min-h-[90vh] gap-4 bg-[--white] text-primary">
+      <div class="flex gap-20">
+        <button class="btn btn-wide btn-outline rounded-3xl text-[--white] hover:bg-[--white] hover:text-[--black]"
+          id="Photos" onClick="setSelected('Photos')">
+          Photos
+        </button>
+        <button class="btn btn-wide btn-outline rounded-3xl text-[--white] hover:bg-[--white] hover:text-[--black]"
+          id="Videos" onClick="
+                    setSelected('Video')">
+          Videos
+        </button>
+      </div>
+      <div class=" flex justify-center items-center flex-col" id="root"></div>
+    </section>
+  </div>
+  <footer class="bg-[--black]">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <div class="flex justify-center text-[--golden] text-4xl font-black">
+        Praveen Soni
+      </div>
 
-            <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-[--white]">
-            Entrepreneurship and Research is My Passion
-            </p>
+      <p class="mx-auto mt-6 max-w-md text-center leading-relaxed text-[--white]">
+        Entrepreneurship and Research is My Passion
+      </p>
 
-            <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
-                <li>
-                    <a class="text-[--white] transition hover:text-[--white]/75" href="#About"> About </a>
-                </li>
+      <ul class="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+        <li>
+          <a class="text-[--white] transition hover:text-[--white]/75" href="#About"> About </a>
+        </li>
 
-                <li>
-                    <a class="text-[--white] transition hover:text-[--white]/75" href="#Work"> Work </a>
-                </li>
+        <li>
+          <a class="text-[--white] transition hover:text-[--white]/75" href="#Work"> Work </a>
+        </li>
 
-                <li>
-                    <a class="text-[--white] transition hover:text-[--white]/75" href="#Skills"> Skills </a>
-                </li>
+        <li>
+          <a class="text-[--white] transition hover:text-[--white]/75" href="#Skills"> Skills </a>
+        </li>
 
-            </ul>
+      </ul>
 
-            <ul class="mt-12 flex justify-center gap-6 md:gap-8">
-                <li>
-                    <a
-                        href="https://www.linkedin.com/in/praveen-soni-0abb10161"
-                        rel="noreferrer"
-                        target="_blank"
-                        class="text-[--white] transition hover:text-[--white]/75">
-                        <span class="sr-only">LinkedIn</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-6 w-6" viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.796-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
-                          </svg>
-                    </a>
-                </li>
+      <ul class="mt-12 flex justify-center gap-6 md:gap-8">
+        <li>
+          <a href="https://www.linkedin.com/in/praveen-soni-0abb10161" rel="noreferrer" target="_blank"
+            class="text-[--white] transition hover:text-[--white]/75">
+            <span class="sr-only">LinkedIn</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-6 w-6" viewBox="0 0 16 16">
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.796-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4" />
+            </svg>
+          </a>
+        </li>
 
-                <li>
-                    <a
-                        href="https://www.youtube.com/channel/UCBK7sdA6BfjVdCbPanVrwRA/featured"
-                        rel="noreferrer"
-                        target="_blank"
-                        class="text-[--white] transition hover:text-[--white]/75"
-                    >
-                        <span class="sr-only">Youtube</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-6 w-6" viewBox="0 0 16 16">
-                            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z"/>
-                          </svg>
-                    </a>
-                </li>
+        <li>
+          <a href="https://www.youtube.com/channel/UCBK7sdA6BfjVdCbPanVrwRA/featured" rel="noreferrer" target="_blank"
+            class="text-[--white] transition hover:text-[--white]/75">
+            <span class="sr-only">Youtube</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-6 w-6" viewBox="0 0 16 16">
+              <path
+                d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408z" />
+            </svg>
+          </a>
+        </li>
 
-                <li>
-                    <a
-                        href="https://www.facebook.com/praveen.soni.353/"
-                        rel="noreferrer"
-                        target="_blank"
-                        class="text-[--white] transition hover:text-[--white]/75"
-                    >
-                        <span class="sr-only">Facebook</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                fillRule="evenodd"
-                                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-    <div class=" w-screen h-full hidden absolute z-10 top-0 left-0 flex justify-between px-20 items-center bg-black bg-opacity-40" id="carousel">
+        <li>
+          <a href="https://www.facebook.com/praveen.soni.353/" rel="noreferrer" target="_blank"
+            class="text-[--white] transition hover:text-[--white]/75">
+            <span class="sr-only">Facebook</span>
+            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fillRule="evenodd"
+                d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                clipRule="evenodd" />
+            </svg>
+          </a>
+        </li>
+      </ul>
     </div>
-    <script>
-      document.getElementById("carousel").style.backdropFilter= "blur(10px)";
-        function renderContent(selected, photoType, videoType) {
-          let navbar;
-          let content;
-          if (selected === "Photos") {
-            document.getElementById("Photos").classList.add("bg-[--black]");
-            document.getElementById("Photos").classList.add("text-[--white]");
-            document.getElementById("Photos").classList.remove("bg-[--white]");
-            document.getElementById("Photos").classList.remove("text-[--black]");
-            document.getElementById("Videos").classList.remove("bg-[--black]");
-            document.getElementById("Videos").classList.remove("text-[--white]");
-            document.getElementById("Videos").classList.add("bg-[--white]");
-            document.getElementById("Videos").classList.add("text-[--black]");
-            // Photo rendering logic
-            navbar = `<div class="navbar justify-center min-w-[90vw]">
+  </footer>
+  <div
+    class=" w-screen h-full hidden absolute z-10 top-0 left-0 flex justify-between px-20 items-center bg-black bg-opacity-40"
+    id="carousel">
+  </div>
+  <script>
+    document.getElementById("carousel").style.backdropFilter = "blur(10px)";
+    function renderContent(selected, photoType, videoType) {
+      let navbar;
+      let content;
+      if (selected === "Photos") {
+        document.getElementById("Photos").classList.add("bg-[--black]");
+        document.getElementById("Photos").classList.add("text-[--white]");
+        document.getElementById("Photos").classList.remove("bg-[--white]");
+        document.getElementById("Photos").classList.remove("text-[--black]");
+        document.getElementById("Videos").classList.remove("bg-[--black]");
+        document.getElementById("Videos").classList.remove("text-[--white]");
+        document.getElementById("Videos").classList.add("bg-[--white]");
+        document.getElementById("Videos").classList.add("text-[--black]");
+        // Photo rendering logic
+        navbar = `<div class="navbar justify-center min-w-[90vw]">
                             <div class="navbar-center border-b border-[--black] border-opacity-30 w-2/4 justify-center self-center hidden lg:flex">
                                 <ul class="menu menu-horizontal px-1">
-                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="General" && "font-semibold"}' onClick="
+                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType == "General" && "font-semibold"}' onClick="
                                         setPhotoType('General')" id="photos-general">General</li>
-                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="Research" && "font-semibold"} ' onClick="
+                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType == "Research" && "font-semibold"} ' onClick="
                                         setPhotoType('Research')" id="photos-research">Research</li>
-                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="Enterpreneurial" && "font-semibold"} ' onClick="
+                                    <li class=' text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType == "Enterpreneurial" && "font-semibold"} ' onClick="
                                         setPhotoType('Entrepreneurial')" id="photos-entrepreneurial">Entrepreneurial</li>
-                                    <li class=' text-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType=="Others" && "font-semibold"}' onClick="
+                                    <li class=' text-[--black] hover:font-medium px-3 py-2 cursor-pointer ${photoType == "Others" && "font-semibold"}' onClick="
                                         setPhotoType('Others')" id="photos-others">Others</li>
                                 </ul>
                             </div>
                         </div>`;
-            if (photoType === "General") {
-              // Render General photos
-              content = `<div class="flex justify-center items-center gap-16 flex-wrap">
-                                    ${
-                                        Photos.General.map((photo, index) => {
-                                            return `
+        if (photoType === "General") {
+          // Render General photos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap">
+                                    ${Photos.General.map((photo, index) => {
+            return `
                                                 <div>
-                                                    <img src="./Assets/Gallery/General/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('General',${index+1})"/>
+                                                    <img src="./Assets/Gallery/General/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('General',${index + 1})"/>
                                                 </div>
                                             `;
-                                        }).join("")
-                                    }
-                                    </div>`;
-            } else if (photoType === "Research") {
-                // Render Research photos
-                content = `<div class="flex justify-center items-center gap-16 flex-wrap">
-                                        ${
-                                            Photos.Research.map((photo, index) => {
-                                                return `
-                                                    <div>
-                                                        <img src="./Assets/Gallery/Research/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('Research',${index+1})"/>
-                                                    </div>
-                                                `;
-                                            }).join("")
-                                        }
-                                        </div>`;
-                } else if (photoType === "Entrepreneurial") {
-                // Render Entrepreneurial photos
-                content = `<div class="flex justify-center items-center gap-16 flex-wrap">
-                                        ${
-                                            Photos.Entrepreneurial.map((photo, index) => {
-                                                return `
-                                                    <div>
-                                                        <img src="./Assets/Gallery/Entrepreneurial/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('Entrepreneurial',${index+1})"/>
-                                                    </div>
-                                                `;
-                                            }).join("")
-                                        }
-                                        </div>`;
-                } else if (photoType === "Others") {
-                // Render Other photos
-                content = `<div class="flex justify-center items-center gap-16 flex-wrap">
-                                        ${
-                                            Photos.Others.map((photo, index) => {
-                                                return `
-                                                    <div>
-                                                        <img src="./Assets/Gallery/Others/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('Others',${index+1})"/>
-                                                    </div>
-                                                `;
-                                            }).join("")
-                                        }
-                                        </div>`;
+          }).join("")
             }
-          } else {
-            // Video rendering logic
-            document.getElementById("Videos").classList.add("bg-[--black]");
-            document.getElementById("Videos").classList.add("text-[--white]");
-            document.getElementById("Videos").classList.remove("bg-[--white]");
-            document.getElementById("Videos").classList.remove("text-[--black]");
-            document.getElementById("Photos").classList.remove("bg-[--black]");
-            document.getElementById("Photos").classList.remove("text-[--white]");
-            document.getElementById("Photos").classList.add("bg-[--white]");
-            document.getElementById("Photos").classList.add("text-[--black]");
+                                    </div>`;
+        } else if (photoType === "Research") {
+          // Render Research photos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap">
+                                        ${Photos.Research.map((photo, index) => {
+            return `
+                                                    <div>
+                                                        <img src="./Assets/Gallery/Research/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('Research',${index + 1})"/>
+                                                    </div>
+                                                `;
+          }).join("")
+            }
+                                        </div>`;
+        } else if (photoType === "Entrepreneurial") {
+          // Render Entrepreneurial photos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap">
+                                        ${Photos.Entrepreneurial.map((photo, index) => {
+            return `
+                                                    <div>
+                                                        <img src="./Assets/Gallery/Entrepreneurial/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('Entrepreneurial',${index + 1})"/>
+                                                    </div>
+                                                `;
+          }).join("")
+            }
+                                        </div>`;
+        } else if (photoType === "Others") {
+          // Render Other photos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap">
+                                        ${Photos.Others.map((photo, index) => {
+            return `
+                                                    <div>
+                                                        <img src="./Assets/Gallery/Others/${photo}.webp" class="w-64 h-64 object-cover p-2 shadow-2xl" onClick="clickOpenCarousel('Others',${index + 1})"/>
+                                                    </div>
+                                                `;
+          }).join("")
+            }
+                                        </div>`;
+        }
+      } else {
+        // Video rendering logic
+        document.getElementById("Videos").classList.add("bg-[--black]");
+        document.getElementById("Videos").classList.add("text-[--white]");
+        document.getElementById("Videos").classList.remove("bg-[--white]");
+        document.getElementById("Videos").classList.remove("text-[--black]");
+        document.getElementById("Photos").classList.remove("bg-[--black]");
+        document.getElementById("Photos").classList.remove("text-[--white]");
+        document.getElementById("Photos").classList.add("bg-[--white]");
+        document.getElementById("Photos").classList.add("text-[--black]");
 
-            navbar = `<div class="navbar justify-center">
+        navbar = `<div class="navbar justify-center">
                             <div class="navbar-center border-b border-[--black] border-opacity-30 w-2/4 justify-center hidden lg:flex">
                                 <ul class="menu menu-horizontal px-1">
-                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Enterpreneurial" && 'font-semibold'}' onClick="
+                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType == "Enterpreneurial" && 'font-semibold'}' onClick="
                                         setVideoType('Enterpreneurial')">Entrepreneurial</li>
-                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Research" && 'font-semibold'}' onClick="
+                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType == "Research" && 'font-semibold'}' onClick="
                                         setVideoType('Research')">Research</li>
-                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Lectures" && 'font-semibold'}' onClick="
+                                    <li class='text-[--black] border-r border-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType == "Lectures" && 'font-semibold'}' onClick="
                                         setVideoType('Lectures')">Lectures</li>
-                                    <li class='text-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType=="Others" && 'font-semibold'}' onClick="
+                                    <li class='text-[--black] hover:font-medium px-3 py-2 cursor-pointer ${videoType == "Others" && 'font-semibold'}' onClick="
                                         setVideoType('Others')">Others</li>
                                 </ul>
                             </div>
                         </div>`;
-            if (videoType === "Enterpreneurial") {
-              // Render Lecture videos
-              content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
+        if (videoType === "Enterpreneurial") {
+          // Render Lecture videos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
                 ${Videos.Entrepreneurial.map((video, index) => {
-                  return `
+            return `
                         <div class="p-2" key=${index}>
                             <iframe width="560" height="315" class="w-72 h-44" src=${video.replace(
-                              "/watch?v=",
-                              "/embed/"
-                            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              "/watch?v=",
+              "/embed/"
+            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     `;
-                }).join("")}
+          }).join("")}
             </div>`;
-              // Render Research videos
-            } else if (videoType === "Enterpreneurial") {
-              // Render Entrepreneurial videos
-              content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
+          // Render Research videos
+        } else if (videoType === "Enterpreneurial") {
+          // Render Entrepreneurial videos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
                 ${Videos.Entrepreneur.map((video, index) => {
-                  return `
+            return `
                         <div class="p-2" key=${index}>
                             <iframe width="560" height="315" class="w-72 h-44" src=${video.replace(
-                              "/watch?v=",
-                              "/embed/"
-                            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              "/watch?v=",
+              "/embed/"
+            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     `;
-                }).join("")}
+          }).join("")}
             </div>`;
-            } else if (videoType === "Research") {
-              // Render Research videos
-              content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
+        } else if (videoType === "Research") {
+          // Render Research videos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
                 ${Videos.Research.map((video, index) => {
-                  return `
+            return `
                         <div class="p-2" key=${index}>
                             <iframe width="560" height="315" class="w-72 h-44" src=${video.replace(
-                              "/watch?v=",
-                              "/embed/"
-                            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              "/watch?v=",
+              "/embed/"
+            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     `;
-                }).join("")}
+          }).join("")}
             </div>`;
-            } else if (videoType === "Others") {
-              // Render Other videos
-              content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
+        } else if (videoType === "Others") {
+          // Render Other videos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
                 ${Videos.Others.map((video, index) => {
-                  return `
+            return `
                         <div class="p-2" key=${index}>
                             <iframe width="560" height="315" class="w-72 h-44" src=${video.replace(
-                              "/watch?v=",
-                              "/embed/"
-                            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              "/watch?v=",
+              "/embed/"
+            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                         </div>
                     `;
-                }).join("")}
+          }).join("")}
             </div>`;
-            } else if (videoType == "Lectures") {
-                // Render Lecture videos
-                content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
+        } else if (videoType == "Lectures") {
+          // Render Lecture videos
+          content = `<div class="flex justify-center items-center gap-16 flex-wrap w-3/4">
                     ${Videos.Lectures.map((video, index) => {
-                    return `
+            return `
                             <div class="p-2" key=${index}>
                                 <iframe width="560" height="315" class="w-72 h-44" src=${video.replace(
-                                "/watch?v=",
-                                "/embed/"
-                                )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              "/watch?v=",
+              "/embed/"
+            )} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                             </div>
                         `;
-                    }).join("")}
+          }).join("")}
                 </div>`;
-            }
-          }
-          return `
+        }
+      }
+      return `
         ${navbar}
         ${content}
     `;
-        }
+    }
 
-        var index=1;
-        function clickHandleCarousel(category, index2) {
-          index = index2;
-          clickOpenCarousel(category,index);
-        }
-        // Example usage:
-        const content = renderContent("Photos", "General", "");
-        // Append `content` to your HTML or use it in your application as needed.
-        document.getElementById("root").innerHTML = content;
-        
-        function clickOpenCarousel(category,index) {
-          window.scrollTo(0, 0);
-          document.body.style.overflow = "hidden";
-            document.getElementById("carousel").classList.remove("hidden");
-            document.getElementById("carousel").innerHTML = `
+    var index = 1;
+    function clickHandleCarousel(category, index2) {
+      index = index2;
+      clickOpenCarousel(category, index);
+    }
+    // Example usage:
+    const content = renderContent("Photos", "General", "");
+    // Append `content` to your HTML or use it in your application as needed.
+    document.getElementById("root").innerHTML = content;
+
+    function clickOpenCarousel(category, index) {
+      window.scrollTo(0, 0);
+      document.body.style.overflow = "hidden";
+      document.getElementById("carousel").classList.remove("hidden");
+      document.getElementById("carousel").innerHTML = `
           <div class="closeButton absolute top-10 right-10 text-white" onClick='clickCloseCarousel()'><svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -425,7 +419,7 @@
   <line x1="15" y1="15" x2="9" y2="9"></line>
 </svg>
 </div>
-                <div class="prev-button text-4xl ${index==1 ? "text-gray-400":"text-white"}" onClick="clickPrevCarousel('${category}')"><svg
+                <div class="prev-button text-4xl ${index == 1 ? "text-gray-400" : "text-white"}" onClick="clickPrevCarousel('${category}')"><svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -440,7 +434,7 @@
 </svg>
 </div>
                 <img src="./Assets/Gallery/${category}/${index}.webp" class="w-[40vw] aspect-square object-cover p-2 shadow-2xl" />
-                <div class="next-button text-4xl ${index==Photos[category].length? "text-gray-400":"text-white"}" onClick="clickNextCarousel('${category}')"><svg
+                <div class="next-button text-4xl ${index == Photos[category].length ? "text-gray-400" : "text-white"}" onClick="clickNextCarousel('${category}')"><svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
   height="24"
@@ -456,26 +450,34 @@
 </div>
             `;
 
-        }
-        function clickCloseCarousel() {
-          document.body.style.overflow = "auto";
-            document.getElementById("carousel").classList.add("hidden");
-        }
-        function clickPrevCarousel(category) {
-          if(index!=1)
-          {
-            index = index-1;
-            clickOpenCarousel(category, index);
-          }
-        }
-        function clickNextCarousel(category) {
-            if(index!=Photos[category].length)
-            {
-              index = index+1;
-              clickOpenCarousel(category, index);
-            }
-        }
+    }
+    function clickCloseCarousel() {
+      document.body.style.overflow = "auto";
+      document.getElementById("carousel").classList.add("hidden");
+    }
+    function clickPrevCarousel(category) {
+      if (index != 1) {
+        index = index - 1;
+        clickOpenCarousel(category, index);
+      }
+    }
+    function clickNextCarousel(category) {
+      if (index != Photos[category].length) {
+        index = index + 1;
+        clickOpenCarousel(category, index);
+      }
+    }
+    function scrollToTarget(target) {
+      // Redirect to the home page
+      window.location.href = `/#${target}`;
+      // After redirecting, add a delay to ensure the page has loaded
+      setTimeout(function () {
+        // Scroll to the target section
+        window.location.hash = `#${target}`;
+      }, 500); // Adjust the delay as needed
+    }
 
-      </script>
-  </body>
+  </script>
+</body>
+
 </html>

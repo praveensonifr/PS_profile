@@ -57,11 +57,12 @@
         },
     };
     const scrollToTarget = async (target) => {
-        await new Promise(r => setTimeout(r, 1000));
-        const elem = document.getElementById(target)
-        console.log(document.getElementById(target))
-        elem.scrollIntoView({ behavior: 'smooth' })
-    }
+        // await new Promise(r => setTimeout(r, 1000));
+        // const elem = document.getElementById(target)
+        // console.log(document.getElementById(target))
+        // elem.scrollIntoView({ behavior: 'smooth' })
+        window.location.href = `#${target}`;
+      }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -80,11 +81,11 @@
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </div>
                 <ul class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                  <li class="hover:text-[--golden] text-[--white]"><a>Home</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>About</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Work</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Skills</a></li>
-                  <li class="hover:text-[--golden] text-[--white]"><a>Gallery</a></li>
+                  <li class="hover:text-[--golden] text-[--white]"><a href="#Home">Home</a></li>
+                  <li class="hover:text-[--golden] text-[--white]"><a href="#About">About</a></li>
+                  <li class="hover:text-[--golden] text-[--white]"><a href="#Work">Work</a></li>
+                  <li class="hover:text-[--golden] text-[--white]"><a href="#Skills">Skills</a></li>
+                  <li class="hover:text-[--golden] text-[--white]"><a href="#Gallery">Gallery</a></li>
                 </ul>
               </div>
               <a class="btn btn-ghost text-[--white] hover:bg-transparent text-xl" href='/'>Praveen Soni</a>
